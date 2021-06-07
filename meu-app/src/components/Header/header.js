@@ -1,15 +1,12 @@
 import React from 'react';
-import '../../App.css';
+import './App.css';
+import Menu from '../Menu/Menu'
 
 function Header(props) {
     return (
         <header className="header">
             <h1>{props.name}</h1>
-            <ul className="menu">
-                <li>{props.links[0]}</li>
-                <li>{props.links[1]}</li>
-                <li>{props.links[2]}</li>
-            </ul>
+            <Menu links={props.links}></Menu>
         </header>
     )
 }
