@@ -1,9 +1,15 @@
 import React from 'react';
+
 import Header from './components/Header/Header'
+import Counter from './components/Counter/Counter';
+
 
 function App() {
   return (
-    <Header name="Wesley" links={["Sobre", "Comprar", "Contato", "Login"]}></Header>
+    <div>
+      <Header name="Wesley" links={["Sobre", "Comprar", "Contato", "Login"]}></Header>
+      <Counter count={0}></Counter>
+    </div>
   );
 }
 
