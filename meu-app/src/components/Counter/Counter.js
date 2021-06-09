@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 
 function Counter(props){
     // Hook estado
     const [count, setCount] = useState(props.count);
+
+
+    // Hooks effect
+    useEffect(()=>{  
+        setCount(parseInt(localStorage.getItem("Contador")));
+
+        return ()=>{} //essa função que ele está retornando vai ser executada somente quando nosso componente for destruido é o que equivale ao (componentWillUnmount).
+
+    },[]) // quando o array estiver vazio ele somente será executado somente uma unica vez.
+
+    useEffect(()=>{
+        document.title = count;
+        localStorage.setItem("Contador", count);
+    },[count]) // mandamos ele ficar de olho no count, toda vez que acontecer uma atualização nesse estado ele vai disparar esse evento
+
+    // useEffect(()=>{}) // nesse caso implicitamente ele vai verificar alguma alteração de estado geral.
 
     function add(){
         setCount(count + 1)
@@ -32,12 +48,17 @@ function Counter(props){
 //     add() {
 //         this.setState((state) => { return { count: state.count + 1 } }, () => { 
 //             console.log(this.state) 
-//             localStorage.setItem("state", JSON.stringify(this.state))
 //         });
 //     }
 
 //     componentDidMount(){
+//         document.title = this.state.count
 //         this.setState(JSON.parse(localStorage.getItem("state")));
+//     }
+
+//     componentDidUpdate(){
+//         document.title = this.state.count
+//         localStorage.setItem("state", JSON.stringify(this.state))
 //     }
     
 //     render() {
