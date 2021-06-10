@@ -26,12 +26,26 @@ function TodoList(){
         setItems(filteredItems);
     }
 
+    // função para verificar se a tarefa já foi completada
+    function onDone(item){
+
+        let updatedItems = items.map(it =>{
+            if(it.id === item.id){
+                it.done = !it.done;
+            }
+            return it;
+        })
+
+        setItems(updatedItems)
+
+    }
+
 
     return(<div className="container">
 
                 <h1>TodoList</h1>
                 <TodoForm onAddItem={onAddItem}></TodoForm>
-                <List onItemDelete={onItemDelete} items={items}>
+                <List onDone={onDone} onItemDelete={onItemDelete} items={items}>
                 </List>
 
             </div>)

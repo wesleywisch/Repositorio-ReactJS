@@ -2,3 +2,7 @@
     margin: auto;
     max-width: 1200px;
 }
+
+.done{
+    text-decoration: line-through;
+}
