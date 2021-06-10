@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import List from './components/Lista/List'
-import TodoForm from './components/Formulario/TodoForm'
+import List from './components/Lista/List';
+import TodoForm from './components/Formulario/TodoForm';
+import Item from './Item';
 import './Todo.css';
 
 function TodoList(){
@@ -9,8 +10,11 @@ function TodoList(){
     // estado da lista
     const [items, setItems] = useState([]);
 
-    function onAddItem(item){
-        setItems([...items, item])
+    function onAddItem(text){
+
+        let it = new Item(text);
+
+        setItems([...items, it])
     }
 
     return(<div className="container">
