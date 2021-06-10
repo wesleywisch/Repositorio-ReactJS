@@ -1,44 +1,26 @@
 import React, { useState } from 'react';
+
+import List from './components/Lista/List'
+import TodoForm from './components/Formulario/TodoForm'
 import './Todo.css';
 
 function TodoList(){
 
-    // estado do input
-    const [text, setText] = useState("");
-
     // estado da lista
     const [items, setItems] = useState([]);
 
-    // função para pegar o valor do input
-    function handleChenge(event){
-        let textInput = event.target.value;
-        setText(textInput);
-    }
-
-    // função para adicionar um item na lista
-    function addItem(event){
-        event.preventDefault();
-        if(text){
-            setItems([...items, text]);
-            setText("");
-        }
-
+    function onAddItem(item){
+        setItems([...items, item])
     }
 
     return(<div className="container">
+
                 <h1>TodoList</h1>
+                <TodoForm onAddItem={onAddItem}></TodoForm>
+                <List items={items}>
+                </List>
 
-                <form>
-                    <input onChange={handleChenge} type="text" value={text}></input>
-                    <button onClick={addItem}>Adicionar</button>
-                </form>
-
-                <ul>
-                    {items.map(item=><li>{item}</li>)}
-                </ul>
             </div>)
-
-
 
 }
 
