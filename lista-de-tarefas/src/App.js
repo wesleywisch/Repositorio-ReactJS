@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import List from './components/Lista/List';
 import TodoForm from './components/Formulario/TodoForm';
-import Item from './Item';
+import Item from './components/Estrutura/Item';
 import './Todo.css';
 
 function TodoList(){

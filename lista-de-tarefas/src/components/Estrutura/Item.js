@@ -1,6 +1,5 @@
 // estrutura de um objeto
 
-
 class Item{
 
     static lastId = 0;

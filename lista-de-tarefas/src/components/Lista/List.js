@@ -1,4 +1,6 @@
 import React from 'react';
+import './style.css'
+import Card from '../Cards/Card';
 
 
 function DoneIgm(props){
@@ -18,12 +20,21 @@ export default function List(props){
 
     return(
         <ul>
-            {props.items.map(item=><li className={ item.done ? "done" : "" } key={ item.id }>
-                    {item.text}
+            {props.items.map(item=><li key={ item.id }>
+                    <Card className={ item.done ? "done item" : "item" } >
 
-                    <button onClick={() =>{ props.onDone(item) }}><DoneIgm done={item.done}></DoneIgm></button>
+                        {item.text}
 
-                    <button onClick={()=>{ props.onItemDelete(item) }}><img src="./assests/lixo.png" alt="deletar"></img></button>
+
+                        <div className="buttons">
+                            <button onClick={() =>{ props.onDone(item) }}><DoneIgm done={item.done}></DoneIgm></button>
+
+                            <button onClick={()=>{ props.onItemDelete(item) }}><img src="./assests/lixo.png" alt="deletar"></img></button>
+
+                        </div>
+
+                    </Card>
+
                 </li>)}
         </ul>
     )
