@@ -10,6 +10,7 @@ function TodoList(){
     // estado da lista
     const [items, setItems] = useState([]);
 
+    // função para adicionar um item na lista
     function onAddItem(text){
 
         let it = new Item(text);
@@ -17,11 +18,20 @@ function TodoList(){
         setItems([...items, it])
     }
 
+    //função para deletar um item da lista
+    function onItemDelete(item){
+
+        let filteredItems = items.filter(it => it.id !== item.id);
+
+        setItems(filteredItems);
+    }
+
+
     return(<div className="container">
 
                 <h1>TodoList</h1>
                 <TodoForm onAddItem={onAddItem}></TodoForm>
-                <List items={items}>
+                <List onItemDelete={onItemDelete} items={items}>
                 </List>
 
             </div>)
