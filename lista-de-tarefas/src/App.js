@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Todo.css';
 
 function TodoList(){
+
+    const [text, setText] = useState("");
+
+    function handleChenge(event){
+        let textInput = event.target.value;
+        setText(textInput);
+    }
 
     return(<div className="container">
                 <h1>TodoList</h1>
 
                 <form>
-                    <input type="text"></input>
+                    <input onChange={handleChenge} type="text"></input>
                     <button>Adicionar</button>
                 </form>
 
                 <ul>
-                    <li>Item-1</li>
-                    <li>Item-1</li>
-                    <li>Item-1</li>
+                    <li>{text}</li>
                 </ul>
             </div>)
 
