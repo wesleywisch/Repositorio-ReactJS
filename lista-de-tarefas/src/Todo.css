@@ -6,3 +6,19 @@
 .done{
     text-decoration: line-through;
 }
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addButton{
+    width: 60px;
+    height: 60px;
+    font-size: 2.5em;
+    border: none;
+    background-color: cyan;
+    border-radius: 50%;
+    color: white;
+}

@@ -3,11 +3,15 @@ import React, { useEffect, useState } from 'react';
 import List from './components/Lista/List';
 import TodoForm from './components/Formulario/TodoForm';
 import Item from './components/Estrutura/Item';
+import Modal from './components/Modal/Modal';
+
 import './Todo.css';
 
 const SAVED_ITEMS = "savedItems"
 
 function TodoList(){
+
+    const [showModal, setShowModal] = useState(false);
 
     // estado da lista
     const [items, setItems] = useState([]);
@@ -31,7 +35,8 @@ function TodoList(){
 
         it.id = items.length
 
-        setItems([...items, it])
+        setItems([...items, it]);
+        onHideModal();
     }
 
     //função para deletar um item da lista
@@ -56,14 +61,18 @@ function TodoList(){
 
     }
 
+    function onHideModal(event){
+        setShowModal(false)
+    }
+
 
     return(<div className="container">
 
-                <h1>TodoList</h1>
-                <TodoForm onAddItem={onAddItem}></TodoForm>
+                <header className="header"> <h1>TodoList</h1> <button onClick={() =>{setShowModal(true)}} className="addButton">+</button> </header>
+                {/* <TodoForm onAddItem={onAddItem}></TodoForm> */}
                 <List onDone={onDone} onItemDelete={onItemDelete} items={items}>
                 </List>
-
+                <Modal show={showModal} onHideModal={onHideModal}><TodoForm onAddItem={onAddItem}></TodoForm></Modal>
             </div>)
 
 }
