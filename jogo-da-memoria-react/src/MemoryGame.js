@@ -4,6 +4,8 @@ import GameOver from './Components/GameOver/GameOver';
 import GameBoard from './Components/GameBoard/GameBoard';
 import game from './game/game';
 
+
+
 export default function MemoryGame(){
 
     // estado do gameOver
@@ -18,12 +20,27 @@ export default function MemoryGame(){
 
     // função para começar novamente o jogo
     function restart(){
+        game.clearCards()
+        setCards(game.createCardsFromTechs());
         setGameOver(false)
+    }
+
+    // função para virar as cartas
+    function handleFlip(card){
+    
+        game.flipCard(card.id, ()=>{
+            // GameOver callback
+            setGameOver(true)
+        }, ()=>{
+            // NoMatchCallBack
+            setCards([...game.cards])
+        });
+        setCards([...game.cards])
     }
 
     return(
         <div>
-            <GameBoard cards={cards}></GameBoard>
+            <GameBoard handleFlip={handleFlip} cards={cards}></GameBoard>
             <GameOver show={gameOver} handleRestart={restart} ></GameOver>
         </div>
     )

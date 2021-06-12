@@ -58,7 +58,7 @@ let game = {
     },
 
     checkGameOver() {
-        return this.cards.filter(card => !card.flipped) === 0;
+        return this.cards.filter(card => !card.flipped) == 0;
     },
 
     createCardsFromTechs: function () {
@@ -102,6 +102,28 @@ let game = {
           currentIndex--;
           [this.cards[randomIndex], this.cards[currentIndex]] = [this.cards[currentIndex], this.cards[randomIndex], ];
         }
+      },
+
+      flipCard: function(cardId, gameOverCallBack, noMatchCallBack){
+
+        if (this.setCard(cardId)) {
+            if (this.secondCard) {
+                if (this.checkMatch()) {
+                    this.clearCards();
+                    if(this.checkGameOver()){
+                        // GameOver
+                        gameOverCallBack();
+                    }
+                } else {
+                    setTimeout(() => {
+                        // Não houve Math
+                        this.unflipCards();
+                        noMatchCallBack();
+                    }, 500);
+                }
+            }
+        }
+
       }
 }
 
