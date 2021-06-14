@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 export default function Header(props){
 
-    const contador = useSelector( (state) =>{ return state } )
+    const contador = useSelector( (state) =>{ return state.counter } )
 
     return(
         <div className="header">
