@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { addItem } from '../../actions/listAction';
 
 export default function TodoForm(props){
 
     // estado do input
     const [text, setText] = useState("");
+
+    const dispatch = useDispatch();
 
    // função para pegar o valor do input
    function handleChenge(event){
@@ -12,20 +17,21 @@ export default function TodoForm(props){
    }
 
    // função para adicionar um item na lista
-   function addItem(event){
+   function addItemEvent(event){
        event.preventDefault();
        //o if server para ver se tem algum valor no input se não tiver ele não coloca na lista.
        if(text){
            // setItems([...items, text]);
-           props.onAddItem(text)
+           dispatch( addItem(text) )
            setText("");
+           props.onHideModal()
        }
    }
 
    return(
            <form>
                <input onChange={handleChenge} type="text" value={text}></input>
-               <button onClick={addItem}>Adicionar</button>
+               <button onClick={addItemEvent}>Adicionar</button>
            </form>
    )
                
