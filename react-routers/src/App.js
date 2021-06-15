@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import Aulas from './components/Aula/Aulas';
 import Sobre from './components/Sobre/Sobre';
 import Aula from './components/Aula/Aula';
+import Assistir from './components/Query/Assistir';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -25,6 +26,10 @@ function App() {
 
           <Route path="/aulas/:id">
             <Aula />
+          </Route>
+
+          <Route exact path="/assistir">
+            <Assistir />
           </Route>
 
           <Route path="/aulas/">
