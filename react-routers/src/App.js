@@ -5,6 +5,7 @@ import Nav from './components/Navegação/Nav';
 import Home from './components/Home/Home';
 import Aulas from './components/Aula/Aulas';
 import Sobre from './components/Sobre/Sobre';
+import Aula from './components/Aula/Aula';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -22,11 +23,11 @@ function App() {
 
           {/* Uma maneira de se criar rotas */}
 
-          <Route path="/aulas/a">
-            <div className="page">Conteúdo</div>
+          <Route path="/aulas/:id">
+            <Aula />
           </Route>
 
-          <Route path="/aulas">
+          <Route path="/aulas/">
             <Aulas />
           </Route>
 
