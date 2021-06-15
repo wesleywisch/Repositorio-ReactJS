@@ -6,30 +6,44 @@ import Home from './components/Home/Home';
 import Aulas from './components/Aula/Aulas';
 import Sobre from './components/Sobre/Sobre';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Nav/>
-        
-        <Route path="/">
-          <Home/>
-        </Route>
+        <Nav />
 
-        <Route path="/aulas">
-          <Aulas/>
-        </Route>
+        <Switch> 
+        {/* Outra maneira de se criar uma rota */}
+          {/* <Route path='/' component={Home} /> */}
+          
 
-        <Route path="/aulas/a">
-          <div className="page">Conteúdo</div>
-        </Route>
+          {/* Uma maneira de se criar rotas */}
 
-        <Route path="/sobre">
-          <Sobre/>
-        </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+
+          <Route path="/aulas/a">
+            <div className="page">Conteúdo</div>
+          </Route>
+
+          <Route path="/aulas">
+            <Aulas />
+          </Route>
+
+          <Route path="/sobre">
+            <Sobre />
+          </Route>
+
+          <Router path="*">
+            <div className="page">Esaa rota não existe</div>
+          </Router>
+          {/* lidando com rotas que não existe */}
+
+        </Switch>
       </div>
     </Router>
   );
