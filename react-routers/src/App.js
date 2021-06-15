@@ -18,13 +18,9 @@ function App() {
         <Switch> 
         {/* Outra maneira de se criar uma rota */}
           {/* <Route path='/' component={Home} /> */}
-          
+
 
           {/* Uma maneira de se criar rotas */}
-
-          <Route exact path="/">
-            <Home />
-          </Route>
 
           <Route path="/aulas/a">
             <div className="page">Conteúdo</div>
@@ -36,6 +32,10 @@ function App() {
 
           <Route path="/sobre">
             <Sobre />
+          </Route>
+
+          <Route path="/">
+            <Home />
           </Route>
 
           <Router path="*">
