@@ -1,3 +1,11 @@
+body{
+    background: linear-gradient(0deg, black, rgb(163, 53, 53));
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+
 .container{
     margin: auto;
     max-width: 1200px;
@@ -5,6 +13,7 @@
 
 .done{
     text-decoration: line-through;
+    text-decoration-color: black;
 }
 
 .header{
@@ -13,12 +22,16 @@
     align-items: center;
 }
 
+.header h1{
+    font-size: 2.5em;
+}
+
 .addButton{
     width: 60px;
     height: 60px;
     font-size: 2.5em;
     border: none;
-    background-color: cyan;
+    background-color: darkgreen;
     border-radius: 50%;
     color: white;
 }

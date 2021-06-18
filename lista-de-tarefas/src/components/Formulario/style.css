@@ -1,0 +1,30 @@
+
+.tarefa{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.76);
+}
+
+.tarefaInput{
+    width: 80%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    padding-left: 2%;
+    font-size: 1.3em;
+    outline: none;
+    border-radius: .6em;
+}
+
+.tarefaButton{
+    width: 60%;
+    margin-top: 5%;
+    background-color: green;
+    color: #fff;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 1.8rem;
+}

@@ -10,19 +10,22 @@ ul{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 97%;
     font-size: 1.5em;
-    padding: 10px;
+    padding: 10px 2%;
     margin-top: 1.5%;
 }
 
 .card{
     background-color: darkgrey;
     box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.35);
+    border-radius: 1rem;
 }
 
 .buttons button{
-    margin-right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .buttons img{

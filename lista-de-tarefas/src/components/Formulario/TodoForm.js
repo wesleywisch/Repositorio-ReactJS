@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import { addItem } from '../../actions/listAction';
 
+import './style.css';
+
 export default function TodoForm(props){
 
     // estado do input
@@ -30,8 +32,9 @@ export default function TodoForm(props){
 
    return(
            <form>
-               <input onChange={handleChenge} type="text" value={text}></input>
-               <button onClick={addItemEvent}>Adicionar</button>
+               <h1 className="tarefa">Nova tarefa:</h1>
+               <input className="tarefaInput" onChange={handleChenge} type="text" value={text} placeholder="Qual a sua nova tarefa?"></input>
+               <button className="tarefaButton" onClick={addItemEvent}>Adicionar</button>
            </form>
    )
                

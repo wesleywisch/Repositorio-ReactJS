@@ -12,8 +12,11 @@
 }
 
 .cardModal{
+    width: 520px;
+    border-radius: 1.8rem;
+    height: 400px;
     padding: 15px;
-    background-color: whitesmoke;
+    background: #fff;
 }
 
 .hide{
