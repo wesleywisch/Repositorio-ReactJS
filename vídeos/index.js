@@ -5,15 +5,15 @@ const app = express();
 const path = require('path');
 
 const videos = [
-    "sUm3mvZii6Y",
-    "DvwMVIJbOJk",
-    "Zu073TPW3E8",
-    "mvMJl_0oQ_8",
-    "MMF9I_9DAcs",
+    "3DOANrkKs8E",
+    "K0E5h3bRBq8",
+    "V4fDgv2jij8",
+    "HseuMJZqU0I",
+    "F7oaYlu4tNc",
 ]
 
 
-if (process.env.NODE_ENV != 'development') {
+// if (process.env.NODE_ENV != 'development') {
     app.get('/api/videos', (req, res) => {
         res.send(videos);
     })
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV != 'development') {
         }))
     })
 
-}
+// }
 
 app.listen(process.env.PORT, () => {
     console.log("Servidor rodando!")

@@ -6,8 +6,7 @@
   "scripts": {
     "start_client": "npm start --prefix front",
     "start_node": "node index.js",
-    "start_dev": "concurrently \"npm run start_node\" \"npm run start_client\" ",
-    "postinstall": "npm install --prefix front"
+    "start_dev": "concurrently \"npm run start_node\" \"npm run start_client\" "
   },
   "author": "",
   "license": "ISC",
